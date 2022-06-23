@@ -7,16 +7,16 @@
         mc:Ignorable="d"
         Title="Барбершоп" Height="450" Width="800">
     <TabControl>
-        <TabItem Header="Пользователи" >
+        <TabItem Header="Пользователи"  Name ="userTab" GotFocus="Tab_GotFocus">
             <DockPanel>
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="8">
-                    <Button Content="Сохранить" Margin="0 0 8 0" Padding="8 2 8 2"/>
-                    <Button Content="Удалить" Padding="8 2 8 2"/>
+                    <Button Content="Сохранить" Margin="0 0 8 0" Padding="8 2 8 2" Click="SaveButton_Click"/>
+                    <Button Content="Удалить" Padding="8 2 8 2" Click="DeleteButton_Click"/>
                 </StackPanel>
                 <DataGrid Name="users" DockPanel.Dock="Bottom" Margin="8 0 8 8" AutoGeneratingColumn="users_AutoGeneratingColumn"></DataGrid>
             </DockPanel>
         </TabItem>
-        <TabItem Header="Роли">
+        <TabItem Header="Роли" Name ="rolesTab" GotFocus="Tab_GotFocus">
             <DockPanel>
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="8">
                     <Button Content="Сохранить" Margin="0 0 8 0" Padding="8 2 8 2"/>
@@ -25,7 +25,7 @@
                 <DataGrid Name="roles" DockPanel.Dock="Bottom" Margin="8 0 8 8" AutoGeneratingColumn="roles_AutoGeneratingColumn"></DataGrid>
             </DockPanel>
         </TabItem>
-        <TabItem Header="Услуги">
+        <TabItem Header="Услуги" Name ="servicesTab" GotFocus="Tab_GotFocus">
             <DockPanel>
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="8">
                     <Button Content="Сохранить" Margin="0 0 8 0" Padding="8 2 8 2"/>
@@ -34,40 +34,40 @@
                 <DataGrid Name="services" DockPanel.Dock="Bottom" Margin="8 0 8 8" AutoGeneratingColumn="services_AutoGeneratingColumn"></DataGrid>
             </DockPanel>
         </TabItem>
-        <TabItem Header="Барберы">
+        <TabItem Header="Барберы"  Name ="barbersTab" GotFocus="Tab_GotFocus">
             <DockPanel>
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="8">
                     <Button Content="Сохранить" Margin="0 0 8 0" Padding="8 2 8 2"/>
                     <Button Content="Удалить" Padding="8 2 8 2"/>
                 </StackPanel>
-                <DataGrid Name="barbers" DockPanel.Dock="Bottom" Margin="8 0 8 8"></DataGrid>
+                <DataGrid Name="barbers" DockPanel.Dock="Bottom" Margin="8 0 8 8" AutoGeneratingColumn="barbers_AutoGeneratingColumn"></DataGrid>
             </DockPanel>
         </TabItem>
-        <TabItem Header="Клиенты">
+        <TabItem Header="Клиенты" Name ="clientsTab" GotFocus="Tab_GotFocus">
             <DockPanel>
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="8">
                     <Button Content="Сохранить" Margin="0 0 8 0" Padding="8 2 8 2"/>
                     <Button Content="Удалить" Padding="8 2 8 2"/>
                 </StackPanel>
-                <DataGrid Name="clients" DockPanel.Dock="Bottom" Margin="8 0 8 8"></DataGrid>
+                <DataGrid Name="clients" DockPanel.Dock="Bottom" Margin="8 0 8 8" AutoGeneratingColumn="clients_AutoGeneratingColumn"></DataGrid>
             </DockPanel>
         </TabItem>
-        <TabItem Header="Проведение услуг">
+        <TabItem Header="Проведение услуг" Name ="provision_of_servicesTab" GotFocus="Tab_GotFocus">
             <DockPanel>
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="8">
                     <Button Content="Сохранить" Margin="0 0 8 0" Padding="8 2 8 2"/>
                     <Button Content="Удалить" Padding="8 2 8 2"/>
                 </StackPanel>
-                <DataGrid Name="provision_of_services" DockPanel.Dock="Bottom" Margin="8 0 8 8"></DataGrid>
+                <DataGrid Name="provision_of_services" DockPanel.Dock="Bottom" Margin="8 0 8 8" AutoGeneratingColumn="provision_of_services_AutoGeneratingColumn"></DataGrid>
             </DockPanel>
         </TabItem>
-        <TabItem Header="Склад">
+        <TabItem Header="Склад" Name ="storageTab" GotFocus="Tab_GotFocus">
             <DockPanel>
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="8">
                     <Button Content="Сохранить" Margin="0 0 8 0" Padding="8 2 8 2"/>
                     <Button Content="Удалить" Padding="8 2 8 2"/>
                 </StackPanel>
-                <DataGrid Name="storage" DockPanel.Dock="Bottom" Margin="8 0 8 8"></DataGrid>
+                <DataGrid Name="storage" DockPanel.Dock="Bottom" Margin="8 0 8 8" AutoGeneratingColumn="storage_AutoGeneratingColumn"></DataGrid>
             </DockPanel>
         </TabItem>
     </TabControl>

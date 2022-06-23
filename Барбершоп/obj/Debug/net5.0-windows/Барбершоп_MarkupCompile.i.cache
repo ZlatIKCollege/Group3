@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 C:\Users\User\source\repos\Барбершоп\Барбершоп\App.xaml
-11407045341
+2-216653475
 
-13-1096677644
+14-1707983635
 2141641362025
-MainWindow.xaml;
+LoginWindow.xaml;MainWindow.xaml;
 
-False
+True
 

@@ -26,9 +26,11 @@ namespace Барбершоп
 
         public MainWindow()
         {
+            new LoginWindow(). ShowDialog();
+
             InitializeComponent();
    
-            _currentTable = "Услуги";
+            _currentTable = "Пользователи";
             RefreshTable(_currentTable);
        
         }
@@ -129,7 +131,6 @@ namespace Барбершоп
 
             }
         }
-
         private void services_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
             string headerName = e.Column.Header.ToString();
@@ -139,12 +140,117 @@ namespace Барбершоп
                 case "Name":
                     e.Column.Header = "Имя";
                     break;
-
                 case "Type":
                     e.Column.Header = "Тип";
                     break;
-
+                case "Discription":
+                    e.Column.Header = "Описание";
+                    break;
+                case "Material":
+                    e.Column.Header = "Материал";
+                    break;
             }
+        }
+
+        private void barbers_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            string headerName = e.Column.Header.ToString();
+            switch (headerName)
+            {
+                case "Surname":
+                    e.Column.Header = "Фамилия";
+                    break;
+                case "Name":
+                    e.Column.Header = "Имя";
+                    break;
+                case "Patronyimc":
+                    e.Column.Header = "Отчество";
+                    break;
+                case "Contact":
+                    e.Column.Header = "Номер телефона";
+                    break;
+            }
+        }
+
+        private void clients_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            string headerName = e.Column.Header.ToString();
+            switch (headerName)
+            {
+                case "Surname":
+                    e.Column.Header = "Фамилия";
+                    break;
+                case "Name":
+                    e.Column.Header = "Имя";
+                    break;
+                case "Patronyimc":
+                    e.Column.Header = "Отчество";
+                    break;
+                case "Contact":
+                    e.Column.Header = "Номер телефона";
+                    break;
+            }
+        }
+
+        private void provision_of_services_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            string headerName = e.Column.Header.ToString();
+            switch (headerName)
+            {
+                case "date":
+                    e.Column.Header = "Дата";
+                    break;
+                case "Service":
+                    e.Column.Header = "Услуга";
+                    break;
+                case "Price":
+                    e.Column.Header = "Цена";
+                    break;
+                case "Barber":
+                    e.Column.Header = "Барбер";
+                    break;
+                case "Client":
+                    e.Column.Header ="Клиент";
+                    break;
+            }
+        }
+
+        private void storage_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            string headerName = e.Column.Header.ToString();
+            switch (headerName)
+            {
+                case "Material":
+                    e.Column.Header = "Материал";
+                    break;
+                case "Count":
+                    e.Column.Header = "Количество";
+                    break;
+                case "Postav":
+                    e.Column.Header = "Поставщик";
+                    break;
+            }
+        }
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            _dbContext.SaveChanges();
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            switch (_currentTable)
+            {
+                case "Пользователи":
+                    _dbContext.Users.Local.Remove(users.SelectedItem as User);
+                    break;
+            }
+        }
+
+        private void Tab_GotFocus(object sender, RoutedEventArgs e)
+        {
+            _currentTable = ((TabItem)sender).Header.ToString();
+            RefreshTable(_currentTable);
         }
     }
 }

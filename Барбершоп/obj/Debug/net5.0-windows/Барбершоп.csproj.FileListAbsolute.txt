@@ -45,3 +45,5 @@ C:\Users\User\source\repos\Барбершоп\Барбершоп\obj\Debug\net5.
 C:\Users\User\source\repos\Барбершоп\Барбершоп\obj\Debug\net5.0-windows\Барбершоп.pdb
 C:\Users\User\source\repos\Барбершоп\Барбершоп\obj\Debug\net5.0-windows\Барбершоп.genruntimeconfig.cache
 C:\Users\User\source\repos\Барбершоп\Барбершоп\obj\Debug\net5.0-windows\ref\Барбершоп.dll
+C:\Users\User\source\repos\Барбершоп\Барбершоп\obj\Debug\net5.0-windows\LoginWindow.g.cs
+C:\Users\User\source\repos\Барбершоп\Барбершоп\obj\Debug\net5.0-windows\LoginWindow.baml
