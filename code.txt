@@ -1,0 +1,195 @@
+   private void services_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            string headerName = e.Column.Header.ToString();
+            switch (headerName)
+            {
+
+                case "Name":
+                    e.Column.Header = "Имя";
+                    break;
+                case "Type":
+                    e.Column.Header = "Тип";
+                    break;
+                case "Description":
+                    e.Column.Header = "Описание";
+                    break;
+                case "Material":
+                    e.Column.Visibility = Visibility.Collapsed;
+                    _dbContext.Storages.Load();
+                    Binding binding = new Binding();
+                    binding.Path = new PropertyPath("Material");
+                    DataGridComboBoxColumn col = new DataGridComboBoxColumn
+                    {
+                        Header = "Материал",
+                        DisplayMemberPath = "Material",
+                        SelectedValuePath = "Id",
+                        ItemsSource = _dbContext.Storages.ToArray(),
+                        SelectedValueBinding = binding
+                    };
+                    ((DataGrid)sender).Columns.Add(col);
+                    break;
+                case "MaterialNavigation":
+                    e.Column.Visibility = Visibility.Collapsed;
+                    break;
+                case "ProvisionOfServices":
+                    e.Column.Visibility = Visibility.Collapsed;
+                    break;
+            }
+        }
+
+        private void barbers_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            string headerName = e.Column.Header.ToString();
+            switch (headerName)
+            {
+                case "Surname":
+                    e.Column.Header = "Фамилия";
+                    break;
+                case "Name":
+                    e.Column.Header = "Имя";
+                    break;
+                case "Patronyimc":
+                    e.Column.Header = "Отчество";
+                    break;
+                case "Contact":
+                    e.Column.Header = "Номер телефона";
+                    break;
+                case "ProvisionOfServices":
+                    e.Column.Visibility = Visibility.Collapsed;
+                    break;
+            }
+        }
+
+        private void clients_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            string headerName = e.Column.Header.ToString();
+            switch (headerName)
+            {
+                case "Surname":
+                    e.Column.Header = "Фамилия";
+                    break;
+                case "Name":
+                    e.Column.Header = "Имя";
+                    break;
+                case "Patronyimc":
+                    e.Column.Header = "Отчество";
+                    break;
+                case "Contact":
+                    e.Column.Header = "Номер телефона";
+                    break;
+                case "ProvisionOfServices":
+                    e.Column.Visibility = Visibility.Collapsed;
+                    break;
+            }
+        }
+
+        private void provision_of_services_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            string headerName = e.Column.Header.ToString();
+            switch (headerName)
+            {
+                case "date":
+                    e.Column.Header = "Дата";
+                    break;
+                case "Service":               
+                    e.Column.Visibility = Visibility.Collapsed;
+                    _dbContext.Services.Load();
+                    Binding binding = new Binding();
+                    binding.Path = new PropertyPath("Service");
+                    DataGridComboBoxColumn col = new DataGridComboBoxColumn
+                    {
+                        Header = "Услуга",
+                        DisplayMemberPath = "Name",
+                        SelectedValuePath = "Id",
+                        ItemsSource = _dbContext.Services.ToArray(),
+                        SelectedValueBinding = binding
+                    };
+                    ((DataGrid)sender).Columns.Add(col);
+                    break;              
+                case "Price":
+                    e.Column.Header = "Цена";
+                    break;
+                case "Barber":
+                    e.Column.Visibility = Visibility.Collapsed;
+                    _dbContext.Barbers.Load();
+                    Binding binding1 = new Binding();
+                    binding1.Path = new PropertyPath("Barber");
+                    DataGridComboBoxColumn col1 = new DataGridComboBoxColumn
+                    {
+                        Header = "Барбер",
+                        DisplayMemberPath = "Surname",
+                        SelectedValuePath = "Id",
+                        ItemsSource = _dbContext.Barbers.ToArray(),
+                        SelectedValueBinding = binding1
+                    };
+                    ((DataGrid)sender).Columns.Add(col1);
+                    break;
+                case "Client":
+                    e.Column.Visibility = Visibility.Collapsed;
+                    _dbContext.Clients.Load();
+                    Binding binding2 = new Binding();
+                    binding2.Path = new PropertyPath("Client");
+                    DataGridComboBoxColumn col2 = new DataGridComboBoxColumn
+                    {
+                        Header = "Барбер",
+                        DisplayMemberPath = "Surname",
+                        SelectedValuePath = "Id",
+                        ItemsSource = _dbContext.Clients.ToArray(),
+                        SelectedValueBinding = binding2
+                    };
+                    ((DataGrid)sender).Columns.Add(col2);
+                    break;
+                case "BarberNavigation":
+                    e.Column.Visibility = Visibility.Collapsed;
+                    break;
+                case "ClientNavigation":
+                    e.Column.Visibility = Visibility.Collapsed;
+                    break;
+                case "ServiceNavigation":
+                    e.Column.Visibility = Visibility.Collapsed;
+                    break;
+
+            }
+        }
+
+
+
+
+
+
+
+
+
+private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            switch (_currentTable)
+            {
+                case "Пользователи":
+                    _dbContext.Users.Local.Remove(users.SelectedItem as User);
+                    break;
+                case "Роли":
+                    _dbContext.Roles.Local.Remove(roles.SelectedItem as Role);
+                    break;
+                case "Услуги":
+                    _dbContext.Services.Local.Remove(services.SelectedItem as Service);
+                    break;
+                case "Барберы":
+                    _dbContext.Barbers.Local.Remove(barbers.SelectedItem as Barber);
+                    break;
+                case "Клиенты":
+                    _dbContext.Clients.Local.Remove(clients.SelectedItem as Client);
+                    break;
+                case "Проведение услуг":
+                    _dbContext.ProvisionOfServices.Local.Remove(provision_of_services.SelectedItem as ProvisionOfService);
+                    break;
+                case "Склад":
+                    _dbContext.Storages.Local.Remove(storage.SelectedItem as Storage);
+                    break;
+            }
+        }
+
+
+
+
+
+
